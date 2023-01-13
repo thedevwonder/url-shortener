@@ -2,6 +2,7 @@ import "./src/config/env.config.js";
 import "./src/config/db.config.js";
 import express from "express";
 import routes from "./src/routes/index.js";
+import cors from 'cors';
 
 const app = express();
 app.use(cors());
