@@ -30,7 +30,9 @@ class UrlShortenerService {
   async getOriginalUrl(docId) {
     try {
       const [data] = await urlShortenerDao.getUrl(docId);
-      return response(true, data.long_url, "Original Url Fetched");
+      if(data.long_url.toString().includes('http'))
+        return response(true, data.long_url, "Original Url Fetched");
+      return response(true, 'http://'+ data.long_url, "Original Url Fetched")
     } catch (error) {
       throw error;
     }
