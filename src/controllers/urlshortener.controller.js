@@ -20,7 +20,7 @@ class UrlShortener {
   async createShortLink(req, res) {
     try {
       const { url } = req.body;
-      const response = await urlShortenerService.createShortLink(url);
+      const response = await urlShortenerService.createShortLink(url.trim());
       if (response.success)
         return res
           .status(200)
