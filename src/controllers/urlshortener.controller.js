@@ -36,6 +36,14 @@ class UrlShortener {
         .send({ data: {}, message: "Something Went Wrong. We are sorry!" });
     }
   }
+  async healthCheck(req, res) {
+    try {
+      return res.status(200).send({ data: {}, message: "Health Check" })
+    } catch (error) {
+      console.log(error)
+      return res.status(500).send({ data: {}, message: "Something Went Wrong. We are sorry!" })
+    }
+  }
 }
 
 const urlshortener = new UrlShortener();
